@@ -76,7 +76,5 @@ public class ShieldRework extends ShieldCapability {
             return this;
         }
 
-
-
     }
 }
