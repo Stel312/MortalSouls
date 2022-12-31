@@ -10,6 +10,7 @@ import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.ShieldCapability;
 import yesman.epicfight.world.capabilities.item.Style;
+import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 import java.util.List;
 import java.util.Map;
@@ -34,12 +35,12 @@ public class ShieldRework extends ShieldCapability {
 
     @Override
     public final List getAutoAttckMotion(PlayerPatch<?> playerpatch) {
-        return (List)this.autoAttackMotions.get(this.getStyle(playerpatch));
+        return this.autoAttackMotions.get(this.getStyle(playerpatch));
     }
 
     @Override
     public Style getStyle(LivingEntityPatch<?> entitypatch) {
-        return super.getStyle(entitypatch);
+        return this.stylegetter.apply(entitypatch);
     }
 
     @Override
@@ -52,7 +53,11 @@ public class ShieldRework extends ShieldCapability {
         private Collider collider;
         private Map<Style, List<StaticAnimation>> autoAttackMotionMap;
         Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
-
+        @Override
+        public ShieldRework.Builder category(WeaponCategory category) {
+            super.category(category);
+            return this;
+        }
         public ShieldRework.Builder livingMotionModifier(Style wieldStyle, LivingMotion livingMotion, StaticAnimation animation) {
             if (this.livingMotionModifiers == null) {
                 this.livingMotionModifiers = Maps.newHashMap();

@@ -1,5 +1,6 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
+import com.ibm.icu.text.RelativeDateTimeFormatter;
 import net.minecraft.world.item.Item;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.animation.types.StaticAnimation;
@@ -9,6 +10,7 @@ import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.gameasset.Skills;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
+import yesman.epicfight.world.capabilities.item.ShieldCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
@@ -39,7 +41,10 @@ public class MortalEpicWeapons {
                 .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
 
     };
-
+    public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = (item) -> {
+        return new ShieldRework.Builder().category(MortalWeaponCategories.GREATSHIELD).collider(MortalWeaponColider.greatshield)
+                .newStyleCombo(CapabilityItem.Styles.ONE_HAND, Animations.DAGGER_AUTO1, Animations.DAGGER_AUTO2);
+    };
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
     }

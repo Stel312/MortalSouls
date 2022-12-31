@@ -1,11 +1,11 @@
 {
-  "type": "greatsword",
+  "type": "greatshield",
   "attributes":{
     "common":{
       "armour_negation": 0.0,
       "impact": 4.0,
       "max_strikes": 1,
-      "speed_bonus": -0.6
+      "speed_bonus": -0.40
     }
   }
 }
