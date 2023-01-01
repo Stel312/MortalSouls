@@ -53,6 +53,13 @@ public class ShieldRework extends ShieldCapability {
         private Collider collider;
         private Map<Style, List<StaticAnimation>> autoAttackMotionMap;
         Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
+
+        protected Builder()
+        {
+            this.autoAttackMotionMap = Maps.newHashMap();
+        }
+
+
         @Override
         public ShieldRework.Builder category(WeaponCategory category) {
             super.category(category);

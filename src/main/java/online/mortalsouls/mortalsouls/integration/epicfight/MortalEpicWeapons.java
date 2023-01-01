@@ -47,6 +47,7 @@ public class MortalEpicWeapons {
     };
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
+        event.getTypeEntry().put(MortalWeaponCategories.GREATSHIELD.toString().toLowerCase(), GREATSHIELD);
     }
     public enum MortalWeaponCategories implements WeaponCategory {
         GREATHAMMER, SHIELD, GREATSHIELD;
