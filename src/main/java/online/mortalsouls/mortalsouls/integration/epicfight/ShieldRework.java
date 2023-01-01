@@ -52,7 +52,7 @@ public class ShieldRework extends ShieldCapability {
         private Function<LivingEntityPatch<?>, Style> styleProvider;
         private Collider collider;
         private Map<Style, List<StaticAnimation>> autoAttackMotionMap;
-        Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
+        private Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
 
         protected Builder()
         {
