@@ -1,16 +1,17 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import net.minecraft.world.InteractionHand;
 import yesman.epicfight.api.animation.LivingMotion;
+import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.api.collider.Collider;
+import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
-import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.item.ShieldCapability;
-import yesman.epicfight.world.capabilities.item.Style;
-import yesman.epicfight.world.capabilities.item.WeaponCategory;
+import yesman.epicfight.world.capabilities.item.*;
 
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,10 @@ public class ShieldRework extends ShieldCapability {
     }
 
     @Override
+    public Map<LivingMotion, StaticAnimation> getLivingMotionModifier(LivingEntityPatch<?> playerdata, InteractionHand hand) {
+        return ImmutableMap.of(LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK);
+    }
+    @Override
     public final List getAutoAttckMotion(PlayerPatch<?> playerpatch) {
         return this.autoAttackMotions.get(this.getStyle(playerpatch));
     }
@@ -45,13 +50,13 @@ public class ShieldRework extends ShieldCapability {
 
     @Override
     public Collider getWeaponCollider() {
-        return super.getWeaponCollider();
+            return this.weaponCollider != null ? this.weaponCollider : super.getWeaponCollider();
     }
 
     public static class Builder extends CapabilityItem.Builder {
         private Function<LivingEntityPatch<?>, Style> styleProvider;
         private Collider collider;
-        private Map<Style, List<StaticAnimation>> autoAttackMotionMap;
+        private final Map<Style, List<StaticAnimation>> autoAttackMotionMap;
         private Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
 
         protected Builder()
@@ -87,6 +92,9 @@ public class ShieldRework extends ShieldCapability {
             this.autoAttackMotionMap.put(style, Lists.newArrayList(animation));
             return this;
         }
-
+        public ShieldRework.Builder styleProvider(Function<LivingEntityPatch<?>, Style> styleProvider) {
+            this.styleProvider = styleProvider;
+            return this;
+        }
     }
 }

@@ -42,8 +42,10 @@ public class MortalEpicWeapons {
 
     };
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = (item) -> {
-        return new ShieldRework.Builder().category(MortalWeaponCategories.GREATSHIELD).collider(MortalWeaponColider.greatshield)
-                .newStyleCombo(CapabilityItem.Styles.ONE_HAND, Animations.DAGGER_AUTO1, Animations.DAGGER_AUTO2);
+        return new ShieldRework.Builder().category(MortalWeaponCategories.GREATSHIELD).styleProvider((playerpatch) -> {
+                    return CapabilityItem.Styles.ONE_HAND;
+                }).collider(MortalWeaponColider.greatshield)
+                .newStyleCombo(CapabilityItem.Styles.ONE_HAND, Animations.DAGGER_AUTO1, Animations.DAGGER_AUTO2).constructor(ShieldRework::new);
     };
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
