@@ -5,7 +5,7 @@
       "armour_negation": 0.0,
       "impact": 23.0,
       "max_strikes": 1,
-      "speed_bonus": -0.40
+      "speed_bonus": 0.40
     }
   }
 }

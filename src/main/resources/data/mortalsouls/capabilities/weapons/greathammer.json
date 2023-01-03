@@ -1,10 +1,10 @@
 {
-  "type": "greatsword",
+  "type": "greathammer",
   "attributes":{
     "common":{
-      "armour_negation": 0.0,
+      "armour_negation": 4.0,
       "impact": 4.0,
-      "max_strikes": 1,
+      "max_strikes": 4,
       "speed_bonus": -0.6
     }
   }
