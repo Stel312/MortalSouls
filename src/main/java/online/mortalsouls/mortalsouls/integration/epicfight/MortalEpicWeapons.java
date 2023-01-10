@@ -26,7 +26,7 @@ public class MortalEpicWeapons {
                     ).collider(ColliderPreset.GREATSWORD).swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT)
                     .canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1,
-                            Animations.GREATSWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
+                            Animations.GREATSWORD_AUTO2, Animations.SWORD_AUTO3, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
                     .specialAttack(CapabilityItem.Styles.TWO_HAND, Skills.GIANT_WHIRLWIND)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_GREATSWORD)
@@ -38,12 +38,11 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
-            MortalShieldCapabilities.builder().constructor(MortalShieldCapabilities::new).category(MortalWeaponCategories.GREATSHIELD).styleProvider(playerpatch ->
+            MortalShieldCapabilities.builder().constructor(MortalShieldCapabilities::new).category(CapabilityItem.WeaponCategories.SHIELD).styleProvider(playerpatch ->
                             CapabilityItem.Styles.ONE_HAND)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, Animations.LONGSWORD_AUTO1, Animations.DAGGER_AUTO2, Animations.SWORD_DASH)
-                    .collider(MortalWeaponColider.greatshield)
-                    .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK,Animations.BIPED_BLOCK);
+                    .collider(MortalWeaponColider.greatshield);
 
 
     private MortalEpicWeapons() {
@@ -55,7 +54,7 @@ public class MortalEpicWeapons {
     }
 
     public enum MortalWeaponCategories implements WeaponCategory {
-        GREATHAMMER, SHIELD, GREATSHIELD;
+        GREATHAMMER, GREATSHIELD;
         final int id;
 
         MortalWeaponCategories() {

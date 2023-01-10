@@ -5,8 +5,10 @@ import com.google.common.collect.Maps;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.UseAnim;
 import yesman.epicfight.api.animation.LivingMotion;
+import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.api.collider.Collider;
+import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -49,9 +51,16 @@ public class MortalShieldCapabilities extends CapabilityItem {
 
     @Override
     public Map<LivingMotion, StaticAnimation> getLivingMotionModifier(LivingEntityPatch<?> playerdata, InteractionHand hand) {
-        return this.livingMotionModifiers != null && hand != InteractionHand.OFF_HAND ?
-                this.livingMotionModifiers.get(this.getStyle(playerdata)) :
-                super.getLivingMotionModifier(playerdata, hand);
+
+        if(this.livingMotionModifiers != null)
+        {
+            if(hand != InteractionHand.OFF_HAND)
+                return this.livingMotionModifiers.get(this.getStyle(playerdata));
+            else
+                return Map.of(LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK);
+        }
+        else
+            return super.getLivingMotionModifier(playerdata, hand);
     }
 
     @Override
@@ -95,7 +104,7 @@ public class MortalShieldCapabilities extends CapabilityItem {
                 this.livingMotionModifiers.put(wieldStyle, Maps.newHashMap());
             }
 
-            ((Map) this.livingMotionModifiers.get(wieldStyle)).put(livingMotion, animation);
+            (this.livingMotionModifiers.get(wieldStyle)).put(livingMotion, animation);
             return this;
         }
 
@@ -114,6 +123,7 @@ public class MortalShieldCapabilities extends CapabilityItem {
             return this;
         }
 
+        @Override
         public MortalShieldCapabilities.Builder constructor(Function<CapabilityItem.Builder, CapabilityItem> constructor) {
             super.constructor(constructor);
             return this;
