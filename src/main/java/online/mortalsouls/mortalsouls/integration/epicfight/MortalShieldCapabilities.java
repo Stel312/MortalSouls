@@ -25,9 +25,11 @@ import java.util.function.Function;
  */
 public class MortalShieldCapabilities extends CapabilityItem {
     private final Map<Style, List<StaticAnimation>> autoAttackMotionMap;
-    private Function<LivingEntityPatch<?>, Style> styleProvider;
-    private Collider collider;
-    private Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
+    private final Function<LivingEntityPatch<?>, Style> styleProvider;
+
+    private final Function<LivingEntityPatch<?>, Boolean> weaponCombinationPredicator;
+    private final Collider collider;
+    private final Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
 
     protected MortalShieldCapabilities(CapabilityItem.Builder builder) {
         super(builder);
@@ -36,7 +38,11 @@ public class MortalShieldCapabilities extends CapabilityItem {
         this.collider = builder1.collider;
         this.livingMotionModifiers = builder1.livingMotionModifiers;
         this.styleProvider = builder1.styleProvider;
+        this.weaponCombinationPredicator = builder1.weaponCombinationPredicator;
+    }
 
+    public static MortalShieldCapabilities.Builder builder() {
+        return new MortalShieldCapabilities.Builder();
     }
 
     @Override
@@ -52,14 +58,12 @@ public class MortalShieldCapabilities extends CapabilityItem {
     @Override
     public Map<LivingMotion, StaticAnimation> getLivingMotionModifier(LivingEntityPatch<?> playerdata, InteractionHand hand) {
 
-        if(this.livingMotionModifiers != null)
-        {
-            if(hand != InteractionHand.OFF_HAND)
+        if (this.livingMotionModifiers != null) {
+            if (hand != InteractionHand.OFF_HAND)
                 return this.livingMotionModifiers.get(this.getStyle(playerdata));
             else
                 return Map.of(LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK);
-        }
-        else
+        } else
             return super.getLivingMotionModifier(playerdata, hand);
     }
 
@@ -69,18 +73,21 @@ public class MortalShieldCapabilities extends CapabilityItem {
     }
 
     @Override
+    public boolean checkOffhandValid(LivingEntityPatch<?> entitypatch) {
+        return super.checkOffhandValid(entitypatch) || this.weaponCombinationPredicator.apply(entitypatch);
+    }
+
+    @Override
     public Collider getWeaponCollider() {
 
         return this.collider != null ? this.collider : super.getWeaponCollider();
     }
 
-
-    public static MortalShieldCapabilities.Builder builder() {
-        return new MortalShieldCapabilities.Builder();
-    }
     public static class Builder extends CapabilityItem.Builder {
         private final Map<Style, List<StaticAnimation>> autoAttackMotionMap;
         private Function<LivingEntityPatch<?>, Style> styleProvider;
+
+        private Function<LivingEntityPatch<?>, Boolean> weaponCombinationPredicator;
         private Collider collider;
         private Map<Style, Map<LivingMotion, StaticAnimation>> livingMotionModifiers;
 
@@ -126,6 +133,11 @@ public class MortalShieldCapabilities extends CapabilityItem {
         @Override
         public MortalShieldCapabilities.Builder constructor(Function<CapabilityItem.Builder, CapabilityItem> constructor) {
             super.constructor(constructor);
+            return this;
+        }
+
+        public MortalShieldCapabilities.Builder weaponCombinationPredicator(Function<LivingEntityPatch<?>, Boolean> predicator) {
+            this.weaponCombinationPredicator = predicator;
             return this;
         }
     }

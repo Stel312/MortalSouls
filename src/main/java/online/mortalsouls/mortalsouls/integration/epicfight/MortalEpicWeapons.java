@@ -1,6 +1,7 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
 import net.minecraft.world.item.Item;
+import online.mortalsouls.mortalsouls.item.ModItems;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
 import yesman.epicfight.gameasset.Animations;
@@ -38,11 +39,19 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
-            MortalShieldCapabilities.builder().constructor(MortalShieldCapabilities::new).category(CapabilityItem.WeaponCategories.SHIELD).styleProvider(playerpatch ->
-                            CapabilityItem.Styles.ONE_HAND)
-                    .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
+            MortalShieldCapabilities.builder().constructor(MortalShieldCapabilities::new).category(CapabilityItem.WeaponCategories.SHIELD)
+                    .styleProvider(playerpatch ->
+                            playerpatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
+                                    playerpatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get())
+                                    ? CapabilityItem.Styles.TWO_HAND : CapabilityItem.Styles.ONE_HAND)
+                    .weaponCombinationPredicator(entitypatch ->
+                            entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
+                                    entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_AUTO1, Animations.SWORD_DUAL_AUTO2, Animations.SWORD_DUAL_AUTO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, Animations.LONGSWORD_AUTO1, Animations.DAGGER_AUTO2, Animations.SWORD_DASH)
-                    .collider(MortalWeaponColider.greatshield);
+                    .collider(MortalWeaponColider.greatshield)
+                    .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK);
 
 
     private MortalEpicWeapons() {
