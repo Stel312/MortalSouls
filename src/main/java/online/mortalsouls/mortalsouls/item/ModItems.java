@@ -15,8 +15,8 @@ public class ModItems {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MortalSouls.MODID);
     public static final RegistryObject<Item> wardenSword = createWeapon("wardensword");
     public static final RegistryObject<Item> greathammer = createWeapon("greathammer");
-    public static final RegistryObject<Item> shieldDoorR = createShield("giantdoorshieldr");
-    public static final RegistryObject<Item> shieldDoorL = createShield("giantdoorshieldl");
+    public static final RegistryObject<Item> shieldDoorR = createNewShield("giantdoorshieldr");
+    public static final RegistryObject<Item> shieldDoorL = createNewShield("giantdoorshieldl");
 
     private ModItems() {
     }
@@ -34,4 +34,8 @@ public class ModItems {
                 .tab(CreativeModeTab.TAB_COMBAT)));
     }
 
+    public static RegistryObject<Item> createNewShield(String name) {
+        return ITEMS.register(name, () -> new ShieldAttackItem(Tiers.NETHERITE, 4, -2.4F,
+                new Item.Properties().durability(336).tab(CreativeModeTab.TAB_COMBAT)));
+    }
 }
