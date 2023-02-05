@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import online.mortalsouls.mortalsouls.integration.epicfight.MortalAnimations;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import org.slf4j.Logger;
@@ -32,6 +33,7 @@ public class MortalSouls {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        modEventBus.addListener(MortalAnimations::register);
         modEventBus.addListener(MortalEpicWeapons::register);
     }
 
