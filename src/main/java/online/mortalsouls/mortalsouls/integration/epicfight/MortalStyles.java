@@ -1,14 +1,16 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
 import yesman.epicfight.world.capabilities.item.Style;
-import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
-public class MortalStyles implements Style {
+public enum MortalStyles implements Style {
+    DUAL_GREASHIELD(true);
 
     final int id;
+    final boolean canUseOffHand;
 
-    MortalStyles() {
+    MortalStyles(boolean canUseOffHand) {
         this.id = Style.ENUM_MANAGER.assign(this);
+        this.canUseOffHand = canUseOffHand;
     }
 
     @Override
@@ -18,6 +20,6 @@ public class MortalStyles implements Style {
 
     @Override
     public boolean canUseOffhand() {
-        return false;
+        return canUseOffHand;
     }
 }
