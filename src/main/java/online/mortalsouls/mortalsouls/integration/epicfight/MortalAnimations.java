@@ -29,6 +29,6 @@ public class MortalAnimations {
     private static void build() {
         Models<?> models = FMLEnvironment.dist == Dist.CLIENT ? ClientModels.LOGICAL_CLIENT : Models.LOGICAL_SERVER;
         dualShieldBlock = new StaticAnimation( true, "biped/living/dual_shield_block", models.biped)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .25F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .5F);
     }
 }

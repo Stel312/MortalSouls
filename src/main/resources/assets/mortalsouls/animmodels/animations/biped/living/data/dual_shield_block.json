@@ -7,9 +7,5 @@
 			"livingmotion":"ALL",
 			"type":"root_upper_joints"
 		},
-		{
-			"livingmotion":"ALL",
-			"type":"root_lower_joints"
-		}
 	]
 }
