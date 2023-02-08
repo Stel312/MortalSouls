@@ -3,6 +3,7 @@ package online.mortalsouls.mortalsouls.integration.epicfight;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import online.mortalsouls.mortalsouls.MortalSouls;
+import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.api.client.model.ClientModels;
 import yesman.epicfight.api.forgeevent.AnimationRegistryEvent;
@@ -27,6 +28,7 @@ public class MortalAnimations {
 
     private static void build() {
         Models<?> models = FMLEnvironment.dist == Dist.CLIENT ? ClientModels.LOGICAL_CLIENT : Models.LOGICAL_SERVER;
-        dualShieldBlock = new StaticAnimation(0.25F, true, "biped/living/dual_shield_block", models.biped);
+        dualShieldBlock = new StaticAnimation( true, "biped/living/dual_shield_block", models.biped)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .25F);
     }
 }
