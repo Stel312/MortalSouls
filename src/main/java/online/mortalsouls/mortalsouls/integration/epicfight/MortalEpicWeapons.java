@@ -1,5 +1,6 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import yesman.epicfight.api.animation.LivingMotions;
@@ -8,6 +9,7 @@ import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.gameasset.Skills;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
@@ -39,19 +41,21 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
-            MortalShieldCapabilities.builder().constructor(MortalShieldCapabilities::new).category(MortalWeaponCategories.GREATSHIELD)
+            WeaponCapability.builder().category(MortalWeaponCategories.GREATSHIELD)
                     .styleProvider(playerpatch ->
                             playerpatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     playerpatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get())
                                     ? CapabilityItem.Styles.TWO_HAND : CapabilityItem.Styles.ONE_HAND)
                     .weaponCombinationPredicator(entitypatch ->
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
-                                    entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
+                                    entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()) ||
+                                    EpicFightCapabilities.getItemStackCapability(((LivingEntity)entitypatch.getOriginal()).getMainHandItem()).getWeaponCategory() != MortalWeaponCategories.GREATSHIELD)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_AUTO1, Animations.SWORD_DUAL_AUTO2, Animations.SWORD_DUAL_AUTO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHILED_AUTO1, Animations.SWORD_DASH, Animations.AXE_AIRSLASH)
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK, Animations.BIPED_BLOCK)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, MortalAnimations.GREATSHIELD_DUAL_BLOCK);
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, MortalAnimations.GREATSHIELD_DUAL_BLOCK)
+                    .canBePlacedOffhand(true).constructor(MortalShieldCapabilities::new);
 
 
     private MortalEpicWeapons() {

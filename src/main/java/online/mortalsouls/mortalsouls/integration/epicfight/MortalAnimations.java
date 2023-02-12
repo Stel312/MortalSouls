@@ -32,7 +32,7 @@ public class MortalAnimations {
         Models<?> models = FMLEnvironment.dist == Dist.CLIENT ? ClientModels.LOGICAL_CLIENT : Models.LOGICAL_SERVER;
         GREATSHIELD_DUAL_BLOCK = new StaticAnimation( true, "biped/living/dual_shield_block", models.biped)
                 .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .5F);
-        GREATSHILED_AUTO1 = new BasicAttackAnimation(0.13F, 0.0F, 0.1F, 0.3F, (Collider)null,
+        GREATSHILED_AUTO1 = new BasicAttackAnimation(0.13F, 0.0F, 0.15F, 0.3F, (Collider)null,
                 "Tool_R", "biped/combat/greatshield_auto1", models.biped)
                 .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, 2F);
     }
