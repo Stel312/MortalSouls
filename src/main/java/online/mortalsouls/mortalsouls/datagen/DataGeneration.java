@@ -9,6 +9,11 @@ import online.mortalsouls.mortalsouls.datagen.init.Recipes;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class DataGeneration {
 
+    private DataGeneration()
+    {
+
+    }
+
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event)
     {

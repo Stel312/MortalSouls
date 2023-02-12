@@ -53,6 +53,11 @@ public class MortalSouls {
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
+        private  RegistryEvents()
+        {
+
+        }
+
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // Register a new block here

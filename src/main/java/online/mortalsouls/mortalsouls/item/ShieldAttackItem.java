@@ -19,12 +19,12 @@ public class ShieldAttackItem  extends SwordItem {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack p_43105_) {
+    public UseAnim getUseAnimation(ItemStack itemStack) {
         return UseAnim.BLOCK;
     }
 
     @Override
-    public int getUseDuration(ItemStack p_43107_) {
+    public int getUseDuration(ItemStack itemStack) {
         return 72000;
     }
 
@@ -33,9 +33,10 @@ public class ShieldAttackItem  extends SwordItem {
         return net.minecraftforge.common.ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
     }
 
-    public InteractionResultHolder<ItemStack> use(Level p_43099_, Player p_43100_, InteractionHand p_43101_) {
-        ItemStack itemstack = p_43100_.getItemInHand(p_43101_);
-        p_43100_.startUsingItem(p_43101_);
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+        ItemStack itemstack = player.getItemInHand(interactionHand);
+        player.startUsingItem(interactionHand);
         return InteractionResultHolder.consume(itemstack);
     }
 }

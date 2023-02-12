@@ -1,6 +1,5 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import yesman.epicfight.api.animation.LivingMotions;
@@ -49,7 +48,7 @@ public class MortalEpicWeapons {
                     .weaponCombinationPredicator(entitypatch ->
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()) ||
-                                    EpicFightCapabilities.getItemStackCapability(((LivingEntity)entitypatch.getOriginal()).getMainHandItem()).getWeaponCategory() != MortalWeaponCategories.GREATSHIELD)
+                                    EpicFightCapabilities.getItemStackCapability(entitypatch.getOriginal().getMainHandItem()).getWeaponCategory() != MortalWeaponCategories.GREATSHIELD)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_AUTO1, Animations.SWORD_DUAL_AUTO2, Animations.SWORD_DUAL_AUTO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHILED_AUTO1, Animations.SWORD_DASH, Animations.AXE_AIRSLASH)
                     .collider(MortalWeaponColider.greatshield)
