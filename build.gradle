@@ -165,7 +165,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.84'
-    implementation fg.deobf("curse.maven:epicfight-405076:4018756")
+    implementation fg.deobf("epicfight:epicfight:18.5.0.1")
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
 

@@ -6,8 +6,8 @@ import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.ColliderPreset;
+import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
-import yesman.epicfight.gameasset.Skills;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
@@ -27,8 +27,9 @@ public class MortalEpicWeapons {
                     ).collider(ColliderPreset.GREATSWORD).swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT)
                     .canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1,
-                            Animations.GREATSWORD_AUTO2, Animations.SWORD_AUTO3, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
-                    .specialAttack(CapabilityItem.Styles.TWO_HAND, Skills.GIANT_WHIRLWIND)
+                            Animations.GREATSWORD_AUTO2, Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
+
+                    .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> EpicFightSkills.GIANT_WHIRLWIND)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_GREATSWORD)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_HOLD_GREATSWORD)
@@ -47,7 +48,7 @@ public class MortalEpicWeapons {
                     .weaponCombinationPredicator(entitypatch ->
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
-                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_AUTO1, Animations.SWORD_DUAL_AUTO2, Animations.SWORD_DUAL_AUTO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_COMBO1, Animations.SWORD_DUAL_COMBO2, Animations.SWORD_DUAL_COMBO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHILED_AUTO1, Animations.SWORD_DASH, Animations.AXE_AIRSLASH)
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
