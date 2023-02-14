@@ -22,13 +22,11 @@ import java.util.function.Function;
 public class MortalEpicWeapons {
 
     public static final Function<Item, CapabilityItem.Builder> GREATHAMMER = item ->
-            WeaponCapability.builder().category(CapabilityItem.WeaponCategories.GREATSWORD).styleProvider(playerpatch ->
-                            CapabilityItem.Styles.TWO_HAND
-                    ).collider(ColliderPreset.GREATSWORD).swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT)
-                    .canBePlacedOffhand(false)
-                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1,
-                            Animations.GREATSWORD_AUTO2, Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
-
+            WeaponCapability.builder().category(MortalWeaponCategories.GREATHAMMER).styleProvider(playerpatch ->
+                            CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
+                    .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2,
+                            Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> EpicFightSkills.GIANT_WHIRLWIND)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.GREATHAMMER_IDLE)
@@ -38,7 +36,7 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, MortalAnimations.GREATHAMMER_IDLE)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD).constructor(MortalWeaponCapabilities::new);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
             WeaponCapability.builder().category(CapabilityItem.WeaponCategories.SHIELD)
                     .styleProvider(playerpatch ->
