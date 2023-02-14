@@ -5,8 +5,8 @@ import yesman.epicfight.world.capabilities.item.Style;
 public enum MortalStyles implements Style {
     DUAL_GREASHIELD(true);
 
-    final int id;
-    final boolean canUseOffHand;
+    private final int id;
+    private final boolean canUseOffHand;
 
     MortalStyles(boolean canUseOffHand) {
         this.id = Style.ENUM_MANAGER.assign(this);

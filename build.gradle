@@ -164,8 +164,11 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.84'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
     implementation fg.deobf("epicfight:epicfight:18.5.0.1")
+    implementation fg.deobf("curse.maven:jei-238222:3940240")
+    //implementation fg.deobf("curse.maven:simplyswords-659887:4377995")
+    //implementation fg.deobf("curse.maven:architectury-419699:4147231")
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
 
