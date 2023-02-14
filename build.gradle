@@ -167,6 +167,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
     implementation fg.deobf("epicfight:epicfight:18.5.0.1")
     implementation fg.deobf("curse.maven:jei-238222:3940240")
+    //implementation fg.deobf("curse.maven:epickinghts-509041:4396096")
     //implementation fg.deobf("curse.maven:simplyswords-659887:4377995")
     //implementation fg.deobf("curse.maven:architectury-419699:4147231")
     // Examples using mod jars from ./libs
