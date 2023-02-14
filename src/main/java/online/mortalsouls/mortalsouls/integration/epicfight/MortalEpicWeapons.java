@@ -36,7 +36,7 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, MortalAnimations.GREATHAMMER_IDLE)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD).constructor(MortalWeaponCapabilities::new);
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, MortalAnimations.GREATHAMMER_GUARD).constructor(MortalWeaponCapabilities::new);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
             WeaponCapability.builder().category(CapabilityItem.WeaponCategories.SHIELD)
                     .styleProvider(playerpatch ->
