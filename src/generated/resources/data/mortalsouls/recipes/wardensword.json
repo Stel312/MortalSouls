@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " C ",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:iron_sword"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "item": "mortalsouls:wardensword"
+  }
+}

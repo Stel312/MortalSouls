@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mortalsouls:giantdoorshieldl"
+    ]
+  },
+  "criteria": {
+    "shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:shield"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mortalsouls:giantdoorshieldl"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shield",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -30,14 +30,14 @@ public class MortalEpicWeapons {
                             Animations.GREATSWORD_AUTO2, Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
 
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> EpicFightSkills.GIANT_WHIRLWIND)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, Animations.BIPED_HOLD_GREATSWORD)
-                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, MortalAnimations.GREATHAMMER_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
             WeaponCapability.builder().category(CapabilityItem.WeaponCategories.SHIELD)
@@ -49,7 +49,7 @@ public class MortalEpicWeapons {
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_COMBO1, Animations.SWORD_DUAL_COMBO2, Animations.SWORD_DUAL_COMBO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
-                    .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHILED_COMBO1, Animations.SWORD_DASH, Animations.AXE_AIRSLASH)
+                    .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHIELD_COMBO1, Animations.SWORD_DASH, Animations.AXE_AIRSLASH)
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK_SHIELD, MortalAnimations.GREATSHIELD_DUAL_BLOCK)

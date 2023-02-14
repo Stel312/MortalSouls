@@ -13,7 +13,9 @@ import yesman.epicfight.gameasset.Armatures;
  */
 
 public class MortalAnimations {
-    public static StaticAnimation GREATSHIELD_DUAL_BLOCK, GREATSHILED_COMBO1;
+    public static StaticAnimation GREATSHIELD_DUAL_BLOCK;
+    public static StaticAnimation GREATSHIELD_COMBO1;
+    public static StaticAnimation GREATHAMMER_IDLE;
 
     private MortalAnimations() {
 
@@ -26,8 +28,9 @@ public class MortalAnimations {
     private static void build() {
         GREATSHIELD_DUAL_BLOCK = new StaticAnimation( true, "biped/living/dual_shield_block", Armatures.BIPED)
                 .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .5F);
-        GREATSHILED_COMBO1 = new BasicAttackAnimation(0.13F, 0.0F, 0.3F, 0.4F, null,
+        GREATSHIELD_COMBO1 = new BasicAttackAnimation(0.13F, 0.0F, 0.3F, 0.4F, null,
                 Armatures.BIPED.toolR, "biped/combat/greatshield_combo1", Armatures.BIPED)
                 .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .75F);
+        GREATHAMMER_IDLE = new StaticAnimation(true, "biped/living/greathammer_idle", Armatures.BIPED);
     }
 }
