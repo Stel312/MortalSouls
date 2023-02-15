@@ -47,7 +47,7 @@ public class MortalEpicWeapons {
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_COMBO1, Animations.SWORD_DUAL_COMBO2, Animations.SWORD_DUAL_COMBO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
-                    .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHIELD_COMBO1, Animations.SWORD_DASH, MortalAnimations.GREATSHIELD_AIR_SLASH)
+                    .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHIELD_COMBO1, MortalAnimations.GREATSHIELD_DASH, MortalAnimations.GREATSHIELD_AIR_SLASH)
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK_SHIELD, MortalAnimations.GREATSHIELD_DUAL_BLOCK)
