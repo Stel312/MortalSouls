@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @author NStel
- * Class for shield items but applying a hit box for time
+ * Class for shield capabilities
  */
 public class MortalShieldCapabilities extends WeaponCapability {
 
