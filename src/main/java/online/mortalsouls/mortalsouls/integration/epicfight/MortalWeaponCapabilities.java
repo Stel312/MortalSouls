@@ -20,6 +20,6 @@ public class MortalWeaponCapabilities extends WeaponCapability {
 
     @Override
     public StaticAnimation getGuardMotion(GuardSkill skill, GuardSkill.BlockType blockType, PlayerPatch<?> playerpatch) {
-        return map.get(this.getWeaponCategory().toString()+this.getStyle(playerpatch)).getGuardAnimation(blockType);
+        return map.get(this.getWeaponCategory().toString()+this.getStyle(playerpatch).toString()).getGuardAnimation(blockType);
     }
 }
