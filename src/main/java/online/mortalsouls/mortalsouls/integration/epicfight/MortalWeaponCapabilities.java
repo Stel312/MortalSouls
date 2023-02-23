@@ -14,7 +14,7 @@ public class MortalWeaponCapabilities extends WeaponCapability {
     private final Map<String, GuardObject> guardMap = new HashMap<>();
     protected MortalWeaponCapabilities(CapabilityItem.Builder builder) {
         super(builder);
-        guardMap.put(this.getWeaponCategory().toString()+ Styles.TWO_HAND, new GuardObject(Animations.GREATSWORD_GUARD_HIT, Animations.GREATSWORD_GUARD_BREAK, Animations.GREATSWORD_GUARD_HIT));
+        guardMap.put(MortalEpicWeapons.MortalWeaponCategories.GREATSHIELD.toString()+ Styles.TWO_HAND, new GuardObject(Animations.GREATSWORD_GUARD_HIT, Animations.GREATSWORD_GUARD_BREAK, Animations.GREATSWORD_GUARD_HIT));
     }
 
     @Override
