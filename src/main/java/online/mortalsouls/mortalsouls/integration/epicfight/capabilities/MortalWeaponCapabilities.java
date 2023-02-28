@@ -7,7 +7,7 @@ import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 
 public class MortalWeaponCapabilities extends WeaponCapability {
-    protected MortalWeaponCapabilities(CapabilityItem.Builder builder) {super(builder);}
+    public MortalWeaponCapabilities(CapabilityItem.Builder builder) {super(builder);}
 
     @Override
     public StaticAnimation getGuardMotion(GuardSkill skill, GuardSkill.BlockType blockType, PlayerPatch<?> playerpatch) {

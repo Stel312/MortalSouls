@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public class MortalShieldCapabilities extends WeaponCapability {
 
-    protected MortalShieldCapabilities(CapabilityItem.Builder builder) {
+    public MortalShieldCapabilities(CapabilityItem.Builder builder) {
         super(builder);
     }
 
