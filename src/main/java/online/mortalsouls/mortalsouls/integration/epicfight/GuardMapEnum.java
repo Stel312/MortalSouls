@@ -11,7 +11,7 @@ public enum GuardMapEnum {
     private final Map<String, GuardObject> guardMap = new HashMap<>();
     GuardMapEnum()
     {
-        guardMap.put(MortalEpicWeapons.MortalWeaponCategories.GREATSHIELD.toString()+ CapabilityItem.Styles.TWO_HAND,
+        guardMap.put(MortalEpicWeapons.MortalWeaponCategories.GREATHAMMER.toString()+ CapabilityItem.Styles.TWO_HAND,
                 new GuardObject(Animations.GREATSWORD_GUARD_HIT, Animations.GREATSWORD_GUARD_BREAK,
                         Animations.GREATSWORD_GUARD_HIT));
 
