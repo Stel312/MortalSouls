@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.integration.epicfight;
+package online.mortalsouls.mortalsouls.integration.epicfight.capabilities;
 
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.skill.GuardSkill;

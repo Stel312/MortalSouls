@@ -1,6 +1,8 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
 import net.minecraft.world.item.Item;
+import online.mortalsouls.mortalsouls.integration.epicfight.capabilities.MortalShieldCapabilities;
+import online.mortalsouls.mortalsouls.integration.epicfight.capabilities.MortalWeaponCapabilities;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;

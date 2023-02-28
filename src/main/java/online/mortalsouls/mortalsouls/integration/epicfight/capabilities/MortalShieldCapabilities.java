@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.integration.epicfight;
+package online.mortalsouls.mortalsouls.integration.epicfight.capabilities;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.UseAnim;

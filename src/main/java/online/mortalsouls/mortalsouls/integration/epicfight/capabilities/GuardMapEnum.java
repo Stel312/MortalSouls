@@ -1,5 +1,7 @@
-package online.mortalsouls.mortalsouls.integration.epicfight;
+package online.mortalsouls.mortalsouls.integration.epicfight.capabilities;
 
+import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
+import online.mortalsouls.mortalsouls.integration.epicfight.capabilities.GuardObject;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 
