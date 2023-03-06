@@ -11,5 +11,3 @@ Ni 1.450000
 d 1.000000
 illum 3
 map_Kd mortalsouls:item/models/greathammer
-map_Ns mortalsouls:item/models/greathammerrough
-refl mortalsouls:item/models/greathammergloss
