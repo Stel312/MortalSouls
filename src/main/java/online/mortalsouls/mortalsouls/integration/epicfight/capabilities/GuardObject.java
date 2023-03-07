@@ -4,9 +4,9 @@ import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.skill.GuardSkill;
 
 public class GuardObject {
-    private StaticAnimation guardHit;
-    private StaticAnimation guardBreak;
-    private StaticAnimation advancedGuard;
+    private final StaticAnimation guardHit;
+    private final StaticAnimation guardBreak;
+    private final StaticAnimation advancedGuard;
 
     public GuardObject(StaticAnimation guardHit, StaticAnimation guardBreak, StaticAnimation advancedGuard)
     {
@@ -23,6 +23,4 @@ public class GuardObject {
             case ADVANCED_GUARD -> advancedGuard;
         };
     }
-
-
 }

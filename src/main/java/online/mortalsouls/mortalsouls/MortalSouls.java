@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalAnimations;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
+import online.mortalsouls.mortalsouls.integration.epicfight.skills.MortalSkills;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import org.slf4j.Logger;
 
@@ -35,6 +36,8 @@ public class MortalSouls {
 
         modEventBus.addListener(MortalAnimations::register);
         modEventBus.addListener(MortalEpicWeapons::register);
+        MortalSkills.register();
+        modEventBus.addListener(MortalSkills::buildSkillsEvent);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
