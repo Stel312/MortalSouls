@@ -1,12 +1,8 @@
 package online.mortalsouls.mortalsouls;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,10 +30,10 @@ public class MortalSouls {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        modEventBus.addListener(MortalAnimations::register);
-        modEventBus.addListener(MortalEpicWeapons::register);
         MortalSkills.register();
         modEventBus.addListener(MortalSkills::buildSkillsEvent);
+        modEventBus.addListener(MortalAnimations::register);
+        modEventBus.addListener(MortalEpicWeapons::register);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

@@ -3,6 +3,7 @@ package online.mortalsouls.mortalsouls.integration.epicfight;
 import net.minecraft.world.item.Item;
 import online.mortalsouls.mortalsouls.integration.epicfight.capabilities.MortalShieldCapabilities;
 import online.mortalsouls.mortalsouls.integration.epicfight.capabilities.MortalWeaponCapabilities;
+import online.mortalsouls.mortalsouls.integration.epicfight.skills.MortalSkills;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
@@ -29,7 +30,7 @@ public class MortalEpicWeapons {
                     .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2,
                             Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
-                    .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> EpicFightSkills.GIANT_WHIRLWIND)
+                    .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.lightningSkill)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, MortalAnimations.GREATHAMMER_IDLE)
@@ -57,8 +58,7 @@ public class MortalEpicWeapons {
                     .canBePlacedOffhand(true).constructor(MortalShieldCapabilities::new);
 
 
-    private MortalEpicWeapons() {
-    }
+    private MortalEpicWeapons() {}
 
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
