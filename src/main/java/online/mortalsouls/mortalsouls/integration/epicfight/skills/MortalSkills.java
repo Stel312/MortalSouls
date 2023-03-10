@@ -14,7 +14,8 @@ public class MortalSkills {
 
     public static void register()
     {
-        SkillManager.register(LightningTestSkill::new, WeaponInnateSkill.createWeaponInnateBuilder().setActivateType(Skill.ActivateType.ONE_SHOT), MortalSouls.MODID, "lightning_test");
+        SkillManager.register(LightningTestSkill::new, WeaponInnateSkill.createWeaponInnateBuilder()
+                .setActivateType(Skill.ActivateType.ONE_SHOT), MortalSouls.MODID, "lightning_test");
     }
 
     public static void buildSkillsEvent(SkillBuildEvent event)

@@ -1,6 +1,7 @@
 package online.mortalsouls.mortalsouls.integration.epicfight.skills;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -17,10 +18,6 @@ public class LightningTestSkill extends WeaponInnateSkill {
         super(builder);
     }
 
-    @Override
-    public void onInitiate(SkillContainer container) {
-        super.onInitiate(container);
-    }
 
     @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
@@ -51,13 +48,14 @@ public class LightningTestSkill extends WeaponInnateSkill {
     }
 
     @Override
-    public void onRemoved(SkillContainer container) {
-        super.onRemoved(container);
+    public ResourceLocation getSkillTexture() {
+        return super.getSkillTexture();
     }
-
 
     @Override
     public WeaponInnateSkill registerPropertiesToAnimation() {
-        return null;
+        return this;
     }
+
+
 }
