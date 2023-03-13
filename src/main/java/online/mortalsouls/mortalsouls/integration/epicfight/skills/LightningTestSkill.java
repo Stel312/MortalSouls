@@ -1,7 +1,6 @@
 package online.mortalsouls.mortalsouls.integration.epicfight.skills;
 
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -9,7 +8,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.skill.Skill;
-import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.skill.SkillCategories;
+import yesman.epicfight.skill.SkillDataManager;
 import yesman.epicfight.skill.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
@@ -45,11 +45,6 @@ public class LightningTestSkill extends WeaponInnateSkill {
                 executer.getOriginal().getLevel());
         lightningBolt.setPos(x, y, z);
         executer.getOriginal().getLevel().addFreshEntity(lightningBolt);
-    }
-
-    @Override
-    public ResourceLocation getSkillTexture() {
-        return super.getSkillTexture();
     }
 
     @Override
