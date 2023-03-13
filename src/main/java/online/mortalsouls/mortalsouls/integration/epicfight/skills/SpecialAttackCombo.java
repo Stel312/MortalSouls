@@ -17,11 +17,6 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
     }
 
     @Override
-    public void onInitiate(SkillContainer container) {
-        super.onInitiate(container);
-    }
-
-    @Override
     public boolean canExecute(PlayerPatch<?> executer) {
         return true;
     }
