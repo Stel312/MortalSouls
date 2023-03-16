@@ -18,7 +18,8 @@ public class MortalSkills {
     {
         SkillManager.register(LightningTestSkill::new, WeaponInnateSkill.createWeaponInnateBuilder()
                 .setActivateType(Skill.ActivateType.ONE_SHOT), MortalSouls.MODID, "lightning_test");
-        SkillManager.register(builder -> new SpecialAttackCombo(builder, Animations.SWORD_COMBO1, Animations.SWORD_COMBO2,
+        SkillManager.register(builder -> new SpecialAttackCombo(builder,Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH,
+                        Animations.SWORD_COMBO1, Animations.SWORD_COMBO2,
                 Animations.SWORD_COMBO3, Animations.DAGGER_AUTO3), WeaponInnateSkill.createWeaponInnateBuilder(), MortalSouls.MODID,
         "combo_test");
 
