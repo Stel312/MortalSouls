@@ -9,7 +9,7 @@ import yesman.epicfight.skill.WeaponInnateSkill;
 
 public class MortalSkills {
     public static Skill lightningSkill;
-    public static Skill combo_test;
+    public static Skill comboTest;
     private MortalSkills()
     {}
 
@@ -18,17 +18,16 @@ public class MortalSkills {
     {
         SkillManager.register(LightningTestSkill::new, WeaponInnateSkill.createWeaponInnateBuilder()
                 .setActivateType(Skill.ActivateType.ONE_SHOT), MortalSouls.MODID, "lightning_test");
-        SkillManager.register(builder -> new SpecialAttackCombo(builder,Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH,
-                        Animations.SWORD_COMBO1, Animations.SWORD_COMBO2,
-                Animations.SWORD_COMBO3, Animations.DAGGER_AUTO3), WeaponInnateSkill.createWeaponInnateBuilder(), MortalSouls.MODID,
-        "combo_test");
-
+        SkillManager.register(builder -> new SpecialAttackCombo.SpecialBuilder().setAttackAnimations(Animations.SWORD_COMBO1,
+                        Animations.SWORD_COMBO2, Animations.SWORD_COMBO3, Animations.DAGGER_AUTO3)
+                        .setJumpAttack(Animations.SWORD_AIR_SLASH).setDashAttack(Animations.SWORD_DASH).build(builder),
+                WeaponInnateSkill.createWeaponInnateBuilder(), MortalSouls.MODID, "combo_test");
     }
 
     public static void buildSkillsEvent(SkillBuildEvent event)
     {
             lightningSkill = event.build(MortalSouls.MODID, "lightning_test");
-            combo_test = event.build(MortalSouls.MODID, "combo_test");
+            comboTest = event.build(MortalSouls.MODID, "combo_test");
 
     }
 }

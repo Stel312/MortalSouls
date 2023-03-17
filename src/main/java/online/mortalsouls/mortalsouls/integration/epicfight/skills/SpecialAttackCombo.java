@@ -19,12 +19,10 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
             .findById(0);
     private final Skill specialSkill = MortalSkills.lightningSkill;
 
-
-
-    public SpecialAttackCombo(Builder<? extends Skill> builder,StaticAnimation dashAttack,
-                              StaticAnimation jumpAttack, StaticAnimation... heavyAnimations) {
+    private SpecialAttackCombo(Builder<? extends Skill> builder, StaticAnimation[] attackAnimations,StaticAnimation dashAttack,
+                              StaticAnimation jumpAttack) {
         super(builder);
-        this.attackAnimations = heavyAnimations;
+        this.attackAnimations = attackAnimations;
         this.dashAttack = dashAttack;
         this.jumpAttack = jumpAttack;
     }
@@ -40,11 +38,12 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
         ServerPlayer serverPlayer = executer.getOriginal();
         SkillDataManager dataManager = executer.getSkill(SkillCategories.BASIC_ATTACK).getDataManager();
         int combo = dataManager.getDataValue(this.combo);
-        if(serverPlayer.isShiftKeyDown()) {
+
+        if(serverPlayer.isShiftKeyDown() && specialSkill !=null) {
             specialSkill.executeOnServer(executer,args);
-        } else if (!serverPlayer.isOnGround() && serverPlayer.fallDistance <2) {
+        } else if (!serverPlayer.isOnGround() && serverPlayer.fallDistance <2 && jumpAttack != null) {
             executer.playAnimationSynchronized(jumpAttack,0);
-        } else if(serverPlayer.isSprinting()) {
+        } else if(serverPlayer.isSprinting() && dashAttack != null) {
             executer.playAnimationSynchronized(dashAttack, 0);
         } else if (attackAnimations != null && attackAnimations[combo] != null) {
             executer.playAnimationSynchronized(attackAnimations[combo], 0);
@@ -61,4 +60,30 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
     public WeaponInnateSkill registerPropertiesToAnimation() {
         return this;
     }
+
+    public static class SpecialBuilder {
+        private StaticAnimation[] attackAnimations;
+        private StaticAnimation jumpAttack;
+        private StaticAnimation dashAttack;
+
+        public SpecialBuilder setAttackAnimations(StaticAnimation... attackAnimations) {
+            this.attackAnimations = attackAnimations;
+            return this;
+        }
+
+        public SpecialBuilder setJumpAttack(StaticAnimation jumpAttack) {
+            this.jumpAttack = jumpAttack;
+            return this;
+        }
+
+        public SpecialBuilder setDashAttack(StaticAnimation dashAttack) {
+            this.dashAttack = dashAttack;
+            return this;
+        }
+
+        public SpecialAttackCombo build(Builder<? extends Skill> builder) {
+            return new SpecialAttackCombo(builder,attackAnimations, jumpAttack, dashAttack);
+        }
+    }
+
 }
