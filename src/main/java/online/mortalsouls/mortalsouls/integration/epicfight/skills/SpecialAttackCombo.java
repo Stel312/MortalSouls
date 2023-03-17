@@ -66,6 +66,8 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
         private StaticAnimation jumpAttack;
         private StaticAnimation dashAttack;
 
+        private SpecialBuilder(){}
+
         public SpecialBuilder setAttackAnimations(StaticAnimation... attackAnimations) {
             this.attackAnimations = attackAnimations;
             return this;
