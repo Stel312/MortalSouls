@@ -13,8 +13,9 @@ import online.mortalsouls.mortalsouls.MortalSouls;
 public class ModItems {
 
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MortalSouls.MODID);
-    public static final RegistryObject<Item> wardenSword = createWeapon("wardensword");
-    public static final RegistryObject<Item> greathammer = createWeapon("greathammer");
+    public static final RegistryObject<Item> wardenSword = createWeapon("wardensword", Tiers.NETHERITE, 4, -2.4f);
+    public static final RegistryObject<Item> greathammer = createWeapon("greathammer", Tiers.NETHERITE, 4, -2.4f);
+    public static final RegistryObject<Item> woodenTwinblade = createWeapon("woodentwinblade", Tiers.WOOD, 4, -2.4f);
     public static final RegistryObject<Item> shieldDoorR = createNewShield("giantdoorshieldr");
     public static final RegistryObject<Item> shieldDoorL = createNewShield("giantdoorshieldl");
 
@@ -25,8 +26,9 @@ public class ModItems {
         return ITEMS;
     }
 
-    public static RegistryObject<Item> createWeapon(String name) {
-        return ITEMS.register(name, () -> new SwordItem(Tiers.NETHERITE, 4, -2.4F, new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).stacksTo(1)));
+    public static RegistryObject<Item> createWeapon(String name , Tier tier, int baseDamage, float attackSpeed) {
+        return ITEMS.register(name, () -> new SwordItem(tier, baseDamage, attackSpeed, new Item.Properties()
+                .tab(CreativeModeTab.TAB_COMBAT).stacksTo(1)));
     }
 
     public static RegistryObject<Item> createShield(String name) {
