@@ -1,5 +1,6 @@
 package online.mortalsouls.mortalsouls.integration.epicfight;
 
+import net.minecraft.stats.Stat;
 import online.mortalsouls.mortalsouls.MortalSouls;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.BasicAttackAnimation;
@@ -19,10 +20,8 @@ public class MortalAnimations {
     public static StaticAnimation GREATSHIELD_DASH;
     public static StaticAnimation GREATHAMMER_IDLE;
     public static StaticAnimation GREATHAMMER_GUARD;
-
-    private MortalAnimations() {
-
-    }
+    public static StaticAnimation TWINBLADE_IDLE;
+    private MortalAnimations() {}
 
     public static void register(AnimationRegistryEvent event) {
         event.getRegistryMap().put(MortalSouls.MODID, MortalAnimations::build);
@@ -43,6 +42,15 @@ public class MortalAnimations {
 
         GREATHAMMER_IDLE = new StaticAnimation(true, "biped/living/greathammer_idle", Armatures.BIPED);
         GREATHAMMER_GUARD = new StaticAnimation(true, "biped/skill/guard_greathammer", Armatures.BIPED);
+
+
+        TWINBLADE_IDLE = new StaticAnimation(true, "biped/living/twinblade_idle", Armatures.BIPED)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .25F);
+
+
+
+
+
 
     }
 }

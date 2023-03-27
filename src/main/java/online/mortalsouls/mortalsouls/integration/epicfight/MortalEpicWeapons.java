@@ -40,6 +40,24 @@ public class MortalEpicWeapons {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, MortalAnimations.GREATHAMMER_GUARD)
                     .constructor(MortalWeaponCapabilities::new);
+
+    public static final Function<Item, CapabilityItem.Builder> TWINBLADE = item ->
+            WeaponCapability.builder().category(MortalWeaponCategories.TWINBLADE).styleProvider(playerpatch ->
+                            CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
+                    .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_COMBO1, Animations.SWORD_COMBO2,
+                            Animations.SWORD_COMBO3, Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH)
+                    .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.comboTest)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, MortalAnimations.TWINBLADE_IDLE)
+                    .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, MortalAnimations.TWINBLADE_IDLE)
+                    .constructor(MortalWeaponCapabilities::new);
     public static final Function<Item, CapabilityItem.Builder> GREATSHIELD = item ->
             WeaponCapability.builder().category(CapabilityItem.WeaponCategories.SHIELD)
                     .styleProvider(playerpatch ->
@@ -62,10 +80,11 @@ public class MortalEpicWeapons {
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
         event.getTypeEntry().put(MortalWeaponCategories.GREATSHIELD.toString().toLowerCase(), GREATSHIELD);
+        event.getTypeEntry().put(MortalWeaponCategories.TWINBLADE.toString().toLowerCase(), TWINBLADE);
     }
 
     public enum MortalWeaponCategories implements WeaponCategory {
-        GREATHAMMER, GREATSHIELD;
+        GREATHAMMER, GREATSHIELD, TWINBLADE;
         final int id;
 
         MortalWeaponCategories() {

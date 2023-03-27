@@ -1,0 +1,11 @@
+{
+  "type": "twinblade",
+  "attributes":{
+    "common":{
+      "armour_negation": 4.0,
+      "impact": 4.0,
+      "max_strikes": 4,
+      "speed_bonus": -0.6
+    }
+  }
+}
