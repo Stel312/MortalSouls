@@ -4,10 +4,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import yesman.epicfight.api.animation.types.StaticAnimation;
-import yesman.epicfight.skill.Skill;
-import yesman.epicfight.skill.SkillCategories;
-import yesman.epicfight.skill.SkillDataManager;
-import yesman.epicfight.skill.WeaponInnateSkill;
+import yesman.epicfight.skill.*;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
@@ -33,14 +30,26 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
     }
 
     @Override
+    public WeaponInnateSkill registerPropertiesToAnimation() {
+        return this;
+    }
+
+
+    @Override
+    public boolean isExecutableState(PlayerPatch<?> executer) {
+        return true;
+    }
+
+    @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
         super.executeOnServer(executer, args);
         ServerPlayer serverPlayer = executer.getOriginal();
         SkillDataManager dataManager = executer.getSkill(SkillCategories.BASIC_ATTACK).getDataManager();
         int combo = dataManager.getDataValue(this.combo);
 
-        if(serverPlayer.isShiftKeyDown() && specialSkill !=null) {
+        if(serverPlayer.isShiftKeyDown() && specialSkill !=null && specialSkill.canExecute(executer)) {
             specialSkill.executeOnServer(executer,args);
+            //specialSkill.setConsumption(specialSkill);
         } else if (!serverPlayer.isOnGround() && serverPlayer.fallDistance <2 && jumpAttack != null) {
             executer.playAnimationSynchronized(jumpAttack,0);
         } else if(serverPlayer.isSprinting() && dashAttack != null) {
@@ -56,10 +65,6 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
         return specialSkill.getSkillTexture();
     }
 
-    @Override
-    public WeaponInnateSkill registerPropertiesToAnimation() {
-        return this;
-    }
 
     public static class SpecialBuilder {
         private StaticAnimation[] attackAnimations;
@@ -82,7 +87,7 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
         }
 
         public SpecialAttackCombo build(Builder<? extends Skill> builder) {
-            return new SpecialAttackCombo(builder,attackAnimations, jumpAttack, dashAttack);
+            return new SpecialAttackCombo(builder,attackAnimations, dashAttack, jumpAttack);
         }
     }
 

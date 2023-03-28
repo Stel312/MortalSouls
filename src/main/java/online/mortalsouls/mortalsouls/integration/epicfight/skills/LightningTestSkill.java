@@ -11,6 +11,7 @@ import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.SkillDataManager;
 import yesman.epicfight.skill.WeaponInnateSkill;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
 public class LightningTestSkill extends WeaponInnateSkill {
@@ -18,6 +19,15 @@ public class LightningTestSkill extends WeaponInnateSkill {
         super(builder);
     }
 
+    @Override
+    public boolean canExecute(PlayerPatch<?> executer) {
+        return true;
+    }
+
+    @Override
+    public boolean isExecutableState(PlayerPatch<?> executer) {
+        return true;
+    }
 
     @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
