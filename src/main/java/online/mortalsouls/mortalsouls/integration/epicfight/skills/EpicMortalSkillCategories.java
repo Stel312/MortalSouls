@@ -18,12 +18,12 @@ public enum EpicMortalSkillCategories implements SkillCategory {
         this.id = SkillCategory.ENUM_MANAGER.assign(this);
     }
     @Override
-    public boolean shouldSaved() {
+    public boolean shouldSave() {
         return shouldSaved;
     }
 
     @Override
-    public boolean shouldSynchronized() {
+    public boolean shouldSynchronize() {
         return shouldSyncronized;
     }
 

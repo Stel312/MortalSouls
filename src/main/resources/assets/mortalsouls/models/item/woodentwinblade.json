@@ -2,7 +2,7 @@
   "parent": "forge:item/default",
   "loader": "forge:obj",
   "flip-v" : true,
-  "model": "mortalsouls:models/item/weapons/woodentwinblade.obj",
+  "model": "mortalsouls:models/item/weapons/spear.obj",
   "textures": {
 
   },
@@ -15,7 +15,7 @@
     "thirdperson_righthand": {
       "rotation": [0.0, 90.0, 0.0 ],
       "translation": [8.0, 13.0, -7.0 ],
-      "scale": [1, 1, 1]
+      "scale": [10, 10, 10]
     },
     "firstperson_lefthand": {
       "rotation": [0.0, -90.0, 0.0 ],

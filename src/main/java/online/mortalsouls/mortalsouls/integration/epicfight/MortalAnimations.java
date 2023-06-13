@@ -29,23 +29,24 @@ public class MortalAnimations {
 
     private static void build() {
         GREATSHIELD_DUAL_BLOCK = new StaticAnimation( true, "biped/living/dual_shield_block", Armatures.BIPED)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .5F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER,(self, entitypatch, speed, elapsedTime) -> .5F);
         GREATSHIELD_COMBO1 = new BasicAttackAnimation(0.13F, 0.0F, 0.3F, 0.4F, null,
                 Armatures.BIPED.toolR, "biped/combat/greatshield_combo1", Armatures.BIPED)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, 1.0F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER,(self, entitypatch, speed, elapsedTime) -> 1.0F);
         GREATSHIELD_AIR_SLASH = new BasicAttackAnimation(0.13F, 0.0F, 0.3F, 0.4F, null,
                 Armatures.BIPED.toolR, "biped/combat/greatshield_air_slash", Armatures.BIPED)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, 1.5F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER,(self, entitypatch, speed, elapsedTime) -> 1.5F);
+
         GREATSHIELD_DASH = new BasicAttackAnimation(0.18F, 0.0F, 0.5F, 0.7F, null,
                 Armatures.BIPED.toolR, "biped/combat/greatshield_dash", Armatures.BIPED)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, 1.5F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER,(self, entitypatch, speed, elapsedTime) -> 1.5F);
 
         GREATHAMMER_IDLE = new StaticAnimation(true, "biped/living/greathammer_idle", Armatures.BIPED);
         GREATHAMMER_GUARD = new StaticAnimation(true, "biped/skill/guard_greathammer", Armatures.BIPED);
 
 
         TWINBLADE_IDLE = new StaticAnimation(true, "biped/living/twinblade_idle", Armatures.BIPED)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED, .25F);
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER,(self, entitypatch, speed, elapsedTime) ->.25F);
 
 
 

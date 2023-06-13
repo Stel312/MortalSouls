@@ -28,7 +28,7 @@ public class MortalEpicWeapons {
                             CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
                     .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2,
-                            Animations.SWORD_COMBO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
+                            Animations.SWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.comboTest)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.GREATHAMMER_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.GREATHAMMER_IDLE)
@@ -45,8 +45,8 @@ public class MortalEpicWeapons {
             WeaponCapability.builder().category(MortalWeaponCategories.TWINBLADE).styleProvider(playerpatch ->
                             CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
                     .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
-                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_COMBO1, Animations.SWORD_COMBO2,
-                            Animations.SWORD_COMBO3, Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH)
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_AUTO1, Animations.SWORD_AUTO2,
+                            Animations.SWORD_AUTO3, Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH)
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.comboTest)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, MortalAnimations.TWINBLADE_IDLE)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, MortalAnimations.TWINBLADE_IDLE)
@@ -67,7 +67,7 @@ public class MortalEpicWeapons {
                     .weaponCombinationPredicator(entitypatch ->
                             entitypatch.getOriginal().getMainHandItem().getItem().equals(ModItems.shieldDoorR.get()) &&
                                     entitypatch.getOriginal().getOffhandItem().getItem().equals(ModItems.shieldDoorL.get()))
-                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_COMBO1, Animations.SWORD_DUAL_COMBO2, Animations.SWORD_DUAL_COMBO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
+                    .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_DUAL_AUTO1, Animations.SWORD_DUAL_AUTO2, Animations.SWORD_DUAL_AUTO3, Animations.SWORD_DUAL_DASH, Animations.SWORD_DUAL_AIR_SLASH)
                     .newStyleCombo(CapabilityItem.Styles.ONE_HAND, MortalAnimations.GREATSHIELD_COMBO1, MortalAnimations.GREATSHIELD_DASH, MortalAnimations.GREATSHIELD_AIR_SLASH)
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)

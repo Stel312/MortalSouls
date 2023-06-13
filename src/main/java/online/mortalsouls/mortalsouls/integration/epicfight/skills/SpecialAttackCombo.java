@@ -4,7 +4,9 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import yesman.epicfight.api.animation.types.StaticAnimation;
+import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.skill.*;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
@@ -44,7 +46,7 @@ public class SpecialAttackCombo extends WeaponInnateSkill {
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
         super.executeOnServer(executer, args);
         ServerPlayer serverPlayer = executer.getOriginal();
-        SkillDataManager dataManager = executer.getSkill(SkillCategories.BASIC_ATTACK).getDataManager();
+        SkillDataManager dataManager = executer.getSkill(EpicFightSkills.BASIC_ATTACK).getDataManager();
         int combo = dataManager.getDataValue(this.combo);
 
         if(serverPlayer.isShiftKeyDown() && specialSkill !=null && specialSkill.canExecute(executer)) {

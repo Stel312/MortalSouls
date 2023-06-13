@@ -8,9 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.skill.Skill;
-import yesman.epicfight.skill.SkillCategories;
-import yesman.epicfight.skill.SkillDataManager;
-import yesman.epicfight.skill.WeaponInnateSkill;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
@@ -32,7 +30,7 @@ public class LightningTestSkill extends WeaponInnateSkill {
     @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
         super.executeOnServer(executer, args);
-        executer.playAnimationSynchronized(Animations.SWORD_COMBO1, 0);
+        executer.playAnimationSynchronized(Animations.SWORD_AUTO1, 0);
         double x;
         double y;
         double z;
