@@ -38,7 +38,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: "${mc_version}"
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -155,6 +155,22 @@ repositories {
         }
     }
 
+
+    maven {
+        // Shedaniel's maven (Architectury API)
+        url = "https://maven.architectury.dev"
+        content {
+            includeGroup "dev.architectury"
+        }
+    }
+
+    maven {
+        // saps.dev Maven (KubeJS and Rhino)
+        url = "https://maven.saps.dev/minecraft"
+        content {
+            includeGroup "dev.latvian.mods"
+        }
+    }
     flatDir {
         dir 'libs'
     }
@@ -164,15 +180,19 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.18.2-40.2.2'
-    implementation fg.deobf("epicfight:epicfight:18.5.0.1")
-    implementation fg.deobf("curse.maven:jei-238222:3940240")
-    // Examples using mod jars from ./libs
-    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    implementation fg.deobf("epicfight:epicfight:18.5.0.8")
+    //implementation fg.deobf("curse.maven:jei-238222:3940240")
+    implementation fg.deobf("curse.maven:jsonthings-541617:4645830")
 
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    // ForgeGradle
+    //implementation fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
+
+// these two are unfortunately needed since fg.deobf doesn't respect transitive dependencies yet
+    //implementation fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
+    //implementation fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
+
+
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

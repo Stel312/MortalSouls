@@ -1,6 +1,8 @@
 package online.mortalsouls.mortalsouls;
 
 import com.mojang.logging.LogUtils;
+import dev.gigaherz.jsonthings.things.items.FlexSwordItem;
+import dev.gigaherz.jsonthings.things.serializers.FlexItemType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -9,6 +11,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalAnimations;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
 import online.mortalsouls.mortalsouls.integration.epicfight.skills.MortalSkills;
+import online.mortalsouls.mortalsouls.integration.jsonthings.flexItemType.FlexGlaiveItem;
+import online.mortalsouls.mortalsouls.integration.jsonthings.serializer.Serializers;
 import online.mortalsouls.mortalsouls.item.ModItems;
 import org.slf4j.Logger;
 
@@ -21,6 +25,7 @@ public class MortalSouls {
 
     public MortalSouls() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        FlexItemType<FlexGlaiveItem> GLAIVE = FlexItemType.register("glaive", Serializers.glaiveSerializer(FlexGlaiveItem::new));
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -31,7 +36,7 @@ public class MortalSouls {
         MinecraftForge.EVENT_BUS.register(this);
 
         MortalSkills.register();
-        modEventBus.addListener(MortalSkills::buildSkillsEvent);
+        //modEventBus.addListener(MortalSkills::buildSkillsEvent);
         modEventBus.addListener(MortalAnimations::register);
         modEventBus.addListener(MortalEpicWeapons::register);
     }

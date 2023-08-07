@@ -26,7 +26,7 @@ public class MortalEpicWeapons {
     public static final Function<Item, CapabilityItem.Builder> GREATHAMMER = item ->
             WeaponCapability.builder().category(MortalWeaponCategories.GREATHAMMER).styleProvider(playerpatch ->
                             CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
-                    .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
+                    .swingSound(EpicFightSounds.WHOOSH_BIG.get()).hitSound(EpicFightSounds.BLADE_HIT.get()).canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2,
                             Animations.SWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.comboTest)
@@ -44,7 +44,7 @@ public class MortalEpicWeapons {
     public static final Function<Item, CapabilityItem.Builder> TWINBLADE = item ->
             WeaponCapability.builder().category(MortalWeaponCategories.TWINBLADE).styleProvider(playerpatch ->
                             CapabilityItem.Styles.TWO_HAND).collider(ColliderPreset.GREATSWORD)
-                    .swingSound(EpicFightSounds.WHOOSH_BIG).hitSound(EpicFightSounds.BLADE_HIT).canBePlacedOffhand(false)
+                    .swingSound(EpicFightSounds.WHOOSH_BIG.get()).hitSound(EpicFightSounds.BLADE_HIT.get()).canBePlacedOffhand(false)
                     .newStyleCombo(CapabilityItem.Styles.TWO_HAND, Animations.SWORD_AUTO1, Animations.SWORD_AUTO2,
                             Animations.SWORD_AUTO3, Animations.SWORD_DASH, Animations.SWORD_AIR_SLASH)
                     .innateSkill(CapabilityItem.Styles.TWO_HAND, itemstack -> MortalSkills.comboTest)

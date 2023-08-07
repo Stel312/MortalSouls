@@ -1,5 +1,7 @@
 package online.mortalsouls.mortalsouls.integration.epicfight.skills;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import online.mortalsouls.mortalsouls.MortalSouls;
 import yesman.epicfight.api.data.reloader.SkillManager;
 import yesman.epicfight.api.forgeevent.SkillBuildEvent;
@@ -7,7 +9,7 @@ import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
-
+@Mod.EventBusSubscriber(modid = MortalSouls.MODID, bus= Mod.EventBusSubscriber.Bus.FORGE)
 public class MortalSkills {
     public static Skill lightningSkill;
     public static Skill comboTest;
@@ -25,6 +27,7 @@ public class MortalSkills {
                         .setResource(Skill.Resource.NONE), MortalSouls.MODID, "combo_test");
     }
 
+    @SubscribeEvent
     public static void buildSkillsEvent(SkillBuildEvent event)
     {
             lightningSkill = event.build(MortalSouls.MODID, "lightning_test");
