@@ -8,6 +8,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import online.mortalsouls.mortalsouls.entity.GlaiveProjectile;
 
 public class GlaiveItem extends SwordItem {
 
@@ -18,12 +19,12 @@ public class GlaiveItem extends SwordItem {
 
 
     @Override
-    public int getUseDuration(ItemStack p_41454_) {
+    public int getUseDuration(ItemStack itemStack) {
         return 72000;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack p_41452_) {
+    public UseAnim getUseAnimation(ItemStack itemStack) {
         return UseAnim.BOW;
     }
 
@@ -31,9 +32,20 @@ public class GlaiveItem extends SwordItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
-        //int slot = hand
-        System.out.println("glaive");
+        if(!world.isClientSide && itemStack != null)
+        {
+            GlaiveProjectile glaiveProjectile = new GlaiveProjectile(world);
+            int d = itemStack.getDamageValue();
+            System.out.println(d);
+            itemStack.setDamageValue(10);
+            glaiveProjectile.getEntityData().set(GlaiveProjectile.ITEMSTACK, itemStack);
+            glaiveProjectile.setPos(player.getX(), player.getY(), player.getZ());
+            glaiveProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 3f, 0);
+            world.addFreshEntity(glaiveProjectile);
+
+        }
 
         return super.use(world, player, interactionHand);
     }
+
 }

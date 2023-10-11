@@ -12,7 +12,6 @@ import org.jetbrains.annotations.Nullable;
 public class FlexGlaiveItem extends GlaiveItem implements IFlexItem {
     public FlexGlaiveItem(Tier tier, int baseDamage, float attackSpeed, Properties properties, ItemBuilder itemBuilder) {
         super(tier, baseDamage, attackSpeed, properties);
-        System.out.println("test");
     }
 
     @Override

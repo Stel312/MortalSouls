@@ -72,19 +72,24 @@ public class MortalEpicWeapons {
                     .collider(MortalWeaponColider.greatshield)
                     .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK_SHIELD, Animations.BIPED_BLOCK)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK_SHIELD, MortalAnimations.GREATSHIELD_DUAL_BLOCK)
-                    .canBePlacedOffhand(true).constructor(MortalShieldCapabilities::new);
+                    .canBePlacedOffhand(false).constructor(MortalShieldCapabilities::new);
 
 
+    public static final Function<Item, CapabilityItem.Builder> GLAIVE = item -> WeaponCapability.builder().category(MortalWeaponCategories.GLAIVE)
+            .styleProvider(playerpatch -> CapabilityItem.Styles.ONE_HAND).newStyleCombo(CapabilityItem.Styles.ONE_HAND,
+                    Animations.SWORD_AUTO1, Animations.SWORD_AUTO2, Animations.SWORD_AUTO3,Animations.SWORD_DASH,
+                    Animations.SWORD_AIR_SLASH).collider(MortalWeaponColider.glaive);
     private MortalEpicWeapons() {}
 
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
         event.getTypeEntry().put(MortalWeaponCategories.GREATHAMMER.toString().toLowerCase(), GREATHAMMER);
         event.getTypeEntry().put(MortalWeaponCategories.GREATSHIELD.toString().toLowerCase(), GREATSHIELD);
         event.getTypeEntry().put(MortalWeaponCategories.TWINBLADE.toString().toLowerCase(), TWINBLADE);
+        event.getTypeEntry().put(MortalWeaponCategories.GLAIVE.toString().toLowerCase(), GLAIVE);
     }
 
     public enum MortalWeaponCategories implements WeaponCategory {
-        GREATHAMMER, GREATSHIELD, TWINBLADE;
+        GREATHAMMER, GREATSHIELD, TWINBLADE, GLAIVE;
         final int id;
 
         MortalWeaponCategories() {
