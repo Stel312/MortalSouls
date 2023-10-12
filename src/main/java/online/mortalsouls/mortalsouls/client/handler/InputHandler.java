@@ -1,14 +1,8 @@
 package online.mortalsouls.mortalsouls.client.handler;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import online.mortalsouls.mortalsouls.client.KeyMappingSetup.Keybinds;
-import online.mortalsouls.mortalsouls.entity.ModEntity;
-import online.mortalsouls.mortalsouls.entity.ShadowEntity;
 import online.mortalsouls.mortalsouls.network.PacketHandler;
 import online.mortalsouls.mortalsouls.network.cts.CSSummonShadow;
 

@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import online.mortalsouls.mortalsouls.entity.ShadowEntity;
+import online.mortalsouls.mortalsouls.client.entity.ShadowEntity;
 
 public class ShadowEntityRenderer extends MobRenderer<ShadowEntity, PlayerModel<ShadowEntity>> {
     public ShadowEntityRenderer(EntityRendererProvider.Context context) {
@@ -14,6 +14,6 @@ public class ShadowEntityRenderer extends MobRenderer<ShadowEntity, PlayerModel<
 
     @Override
     public ResourceLocation getTextureLocation(ShadowEntity p_114482_) {
-        return null;
+        return new ResourceLocation("textures/entity/zombie/zombie.png");
     }
 }

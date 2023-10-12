@@ -1,8 +1,7 @@
 package online.mortalsouls.mortalsouls.capabilities;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
-import online.mortalsouls.mortalsouls.entity.ShadowEntity;
+import online.mortalsouls.mortalsouls.client.entity.ShadowEntity;
 
 public class PlayerCapabilities implements IPlayerCapabilities{
 
@@ -39,7 +38,10 @@ public class PlayerCapabilities implements IPlayerCapabilities{
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        this.shadowEntity.deserializeNBT(nbt.getCompound("shadow"));
+        if(shadowEntity!= null)
+        {
+            this.shadowEntity.deserializeNBT(nbt.getCompound("shadow"));
+        }
         this.setSummon(nbt.getBoolean("summoned"));
     }
 }

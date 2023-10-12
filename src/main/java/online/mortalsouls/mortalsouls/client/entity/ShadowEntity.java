@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.entity;
+package online.mortalsouls.mortalsouls.client.entity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -10,18 +10,16 @@ import net.minecraftforge.network.PlayMessages;
 
 public class ShadowEntity extends Mob {
     private Player player;
-    public ShadowEntity(EntityType<? extends Mob> entityType, Level level, Player player)
-    {
-        this(entityType, level);
-        this.player = player;
-
-    }
     public ShadowEntity(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
+        this.noCulling = true;
+        this.setInvulnerable(true);
     }
 
     public ShadowEntity(PlayMessages.SpawnEntity spawnEntity, Level level) {
         super(ModEntity.TYPE_SHADOW.get(), level);
+        this.noCulling = true;
+        this.setInvulnerable(true);
     }
 
     public static AttributeSupplier.Builder registerAttributes() {
@@ -34,7 +32,7 @@ public class ShadowEntity extends Mob {
     }
     @Override
     protected void defineSynchedData() {
-
+        super.defineSynchedData();
     }
 
 
@@ -44,8 +42,17 @@ public class ShadowEntity extends Mob {
         if(this.player == null)
             this.kill();
         else {
-            this.setPos(player.position().x + player.getLookAngle().x, player.position().y + player.getLookAngle().y, player.position().z + .5);
-            this.setRot((float) player.getLookAngle().x(),(float) player.getLookAngle().y());
+            double lookz = player.getLookAngle().z;
+            double lookx = player.getLookAngle().x;
+            double posx = player.position().x;
+            double posy = player.position().y;
+            double posz = player.position().z;
+            double scale = Math.sqrt((lookx * lookx) + (lookz * lookz));
+
+            this.setPos(posx - lookx / scale , posy + .5, posz - lookz / scale);
+            this.setYBodyRot(player.yBodyRot);
+            this.setYHeadRot(player.yBodyRot);
+            //this.setRot((float) lookx,(float) looky);
         }
     }
 
@@ -53,6 +60,9 @@ public class ShadowEntity extends Mob {
     public void spawnAnim() {
         super.spawnAnim();
     }
+
+
+
 
     @Override
     protected boolean shouldDespawnInPeaceful() {
@@ -62,4 +72,9 @@ public class ShadowEntity extends Mob {
     public void setPlayer(Player player) {
         this.player = player;
     }
+    public Player getPlayer()
+    {
+        return this.player;
+    }
+
 }

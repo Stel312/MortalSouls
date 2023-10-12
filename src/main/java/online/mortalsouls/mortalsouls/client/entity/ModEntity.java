@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.entity;
+package online.mortalsouls.mortalsouls.client.entity;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -27,7 +27,7 @@ public class ModEntity {
     private ModEntity(){}
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MortalSouls.MODID);
-    public static final RegistryObject<EntityType<ShadowEntity>> TYPE_SHADOW = createEntityType(ShadowEntity::new, ShadowEntity::new, MobCategory.MONSTER, "shadow", 1F, 1F);
+    public static final RegistryObject<EntityType<ShadowEntity>> TYPE_SHADOW = createEntityType(ShadowEntity::new, ShadowEntity::new, MobCategory.MISC, "shadow", 0.1F, 0.1F);
 
 
     public static final RegistryObject<EntityType<GlaiveProjectile>> GLAIVE_THROWABLE = ENTITIES.register("entity_glaive",

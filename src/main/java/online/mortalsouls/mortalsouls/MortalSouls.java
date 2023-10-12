@@ -9,7 +9,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import online.mortalsouls.mortalsouls.capabilities.ModCapabilities;
 import online.mortalsouls.mortalsouls.client.handler.InputHandler;
-import online.mortalsouls.mortalsouls.entity.ModEntity;
+import online.mortalsouls.mortalsouls.client.entity.ModEntity;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalAnimations;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
 import online.mortalsouls.mortalsouls.integration.epicfight.skills.MortalSkills;

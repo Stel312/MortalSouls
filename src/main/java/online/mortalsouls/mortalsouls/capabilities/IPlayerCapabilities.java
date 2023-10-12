@@ -2,7 +2,7 @@ package online.mortalsouls.mortalsouls.capabilities;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;
-import online.mortalsouls.mortalsouls.entity.ShadowEntity;
+import online.mortalsouls.mortalsouls.client.entity.ShadowEntity;
 
 public interface IPlayerCapabilities extends INBTSerializable<CompoundTag> {
 

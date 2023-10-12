@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.entity;
+package online.mortalsouls.mortalsouls.client.entity;
 
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

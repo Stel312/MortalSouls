@@ -8,7 +8,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import online.mortalsouls.mortalsouls.entity.GlaiveProjectile;
+import online.mortalsouls.mortalsouls.client.entity.GlaiveProjectile;
 
 public class GlaiveItem extends SwordItem {
 
