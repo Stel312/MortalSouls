@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import online.mortalsouls.mortalsouls.client.entity.GlaiveProjectile;
+import online.mortalsouls.mortalsouls.entity.GlaiveProjectile;
 import online.mortalsouls.mortalsouls.item.GlaiveItem;
 
 public class GlaiveRenderer extends EntityRenderer<GlaiveProjectile> {

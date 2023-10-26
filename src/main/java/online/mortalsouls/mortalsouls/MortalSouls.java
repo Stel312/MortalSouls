@@ -9,9 +9,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import online.mortalsouls.mortalsouls.capabilities.ModCapabilities;
 import online.mortalsouls.mortalsouls.client.handler.InputHandler;
-import online.mortalsouls.mortalsouls.client.entity.ModEntity;
+import online.mortalsouls.mortalsouls.entity.ModEntity;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalAnimations;
 import online.mortalsouls.mortalsouls.integration.epicfight.MortalEpicWeapons;
+import online.mortalsouls.mortalsouls.integration.epicfight.PatchProvider;
 import online.mortalsouls.mortalsouls.integration.epicfight.skills.MortalSkills;
 import online.mortalsouls.mortalsouls.integration.jsonthings.flexItemType.FlexGlaiveItem;
 import online.mortalsouls.mortalsouls.integration.jsonthings.serializer.Serializers;
@@ -44,6 +45,7 @@ public class MortalSouls {
 
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(PacketHandler::register);
+        event.enqueueWork(PatchProvider::registerEntityPatches);
     }
 
     private void initFlexItems()

@@ -1,7 +1,7 @@
 package online.mortalsouls.mortalsouls.capabilities;
 
 import net.minecraft.nbt.CompoundTag;
-import online.mortalsouls.mortalsouls.client.entity.ShadowEntity;
+import online.mortalsouls.mortalsouls.entity.ShadowEntity;
 
 public class PlayerCapabilities implements IPlayerCapabilities{
 

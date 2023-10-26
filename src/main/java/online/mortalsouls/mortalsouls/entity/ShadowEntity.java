@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.client.entity;
+package online.mortalsouls.mortalsouls.entity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -51,8 +51,9 @@ public class ShadowEntity extends Mob {
 
             this.setPos(posx - lookx / scale , posy + .5, posz - lookz / scale);
             this.setYBodyRot(player.yBodyRot);
-            this.setYHeadRot(player.yBodyRot);
-            //this.setRot((float) lookx,(float) looky);
+            this.setYHeadRot(player.yHeadRot);
+            this.setRot((float) lookz,(float) lookx);
+
         }
     }
 

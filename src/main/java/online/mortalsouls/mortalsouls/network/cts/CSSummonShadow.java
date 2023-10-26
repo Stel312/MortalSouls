@@ -6,8 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
 import online.mortalsouls.mortalsouls.capabilities.IPlayerCapabilities;
 import online.mortalsouls.mortalsouls.capabilities.ModCapabilities;
-import online.mortalsouls.mortalsouls.client.entity.ModEntity;
-import online.mortalsouls.mortalsouls.client.entity.ShadowEntity;
+import online.mortalsouls.mortalsouls.entity.ModEntity;
+import online.mortalsouls.mortalsouls.entity.ShadowEntity;
 
 import java.util.function.Supplier;
 

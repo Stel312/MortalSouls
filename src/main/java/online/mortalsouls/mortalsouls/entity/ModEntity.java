@@ -1,4 +1,4 @@
-package online.mortalsouls.mortalsouls.client.entity;
+package online.mortalsouls.mortalsouls.entity;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
